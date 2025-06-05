@@ -112,7 +112,7 @@ lines');
 console.log(`String
 multiple
 lines`);
-*/
+
 
 const age = 15;
 const isOldEnough = age >= 18;
@@ -131,4 +131,36 @@ if (birthYear <= 2000) {
 } else {
     century = 21;
 }
-console.log(century); 
+console.log(century);
+
+Challenge #2
+
+const massMark = 78; // kg
+const heightMark = 1.69; // m
+const massJohn = 92; // kg
+const heightJohn = 1.95; // m
+
+const bmiMark = massMark / (heightMark ** 2);
+const bmiJohn = massJohn / (heightJohn ** 2);
+
+if (bmiMark > bmiJohn) {
+    console.log(`Mark's BMI (${bmiMark}) is higher than John's (${bmiJohn})`);
+} else {
+    console.log(`John's BMI (${bmiJohn}) is higher than Mark's (${bmiMark})`);
+}
+*/
+// Type conversion and coercion
+// Conversion means we manuallu convert a value from one type to another
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear); // Number() converts string to number
+console.log(Number(inputYear) + 18);
+console.log(Number('Jonas')); // NaN (Not a Number)
+console.log(typeof NaN); // number
+console.log(String(23), 23); // String() converts number to string
+// Coercion means JavaScript automatically converts a value from one type to another
+console.log('I am ' + 23 + ' years old'); // string + number = string
+console.log('23' - '10' - 3); // string - string = number
+console.log('23' / '2'); // string / string = number
+let n = '1' + 1;
+n = n - 1;
+console.log(typeof (n), n);
