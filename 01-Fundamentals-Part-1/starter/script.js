@@ -148,7 +148,7 @@ if (bmiMark > bmiJohn) {
 } else {
     console.log(`John's BMI (${bmiJohn}) is higher than Mark's (${bmiMark})`);
 }
-*/
+
 // Type conversion and coercion
 // Conversion means we manuallu convert a value from one type to another
 const inputYear = '1991';
@@ -164,3 +164,24 @@ console.log('23' / '2'); // string / string = number
 let n = '1' + 1;
 n = n - 1;
 console.log(typeof (n), n);
+*/
+// 5 falsy values: 0, '', undefined, null, NaN
+console.log(Boolean(0)); // false
+console.log(Boolean(undefined)); // false
+console.log(Boolean('Jonas'));
+console.log(Boolean({})); // true
+console.log(Boolean('')); // false
+
+const money = 100;
+if (money) {
+    console.log("Don't spend it all ;)");
+} else {
+    console.log("You should get a job!");
+}
+
+let height; // height is undefined
+if (height) {
+    console.log("YAY! Height is defined");
+} else {
+    console.log("Height is UNDEFINED");
+}
