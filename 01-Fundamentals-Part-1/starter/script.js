@@ -26,7 +26,6 @@ console.log(typeof year);
 
 console.log(typeof null);
 
-
 // Using let to declare variables and reassign values
 let age = 30;
 age = 31;
@@ -38,7 +37,6 @@ const birthYear = 1991;
 
 var job = "programmer";
 job = "teacher";
-
 
 const now = 2025;
 const ageAnh = now - 1999;
@@ -82,8 +80,6 @@ Test data:
 Data 1: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
 Data 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1.76 m tall.
 
-*/
-
 const massMark = 78; // kg
 const heightMark = 1.69; // m
 const massJohn = 92; // kg
@@ -93,3 +89,26 @@ const bmiMark = massMark / (heightMark ** 2);
 const bmiJohn = massJohn / (heightJohn ** 2);
 
 const markHigherBMI = bmiMark > bmiJohn;
+*/
+
+const firstName = "Anh";
+const lastName = "Duy";
+const job = "programmer";
+const birthYear = 1999;
+const year = 2025;
+
+const anh = "I'm " + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
+console.log(anh);
+
+const anhNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+console.log(anhNew);
+
+console.log(`Just a regular string...`);
+
+console.log('String with \n\
+multiple \n\
+lines');
+
+console.log(`String
+multiple
+lines`);
