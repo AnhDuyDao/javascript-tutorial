@@ -164,7 +164,7 @@ console.log('23' / '2'); // string / string = number
 let n = '1' + 1;
 n = n - 1;
 console.log(typeof (n), n);
-*/
+
 // 5 falsy values: 0, '', undefined, null, NaN
 console.log(Boolean(0)); // false
 console.log(Boolean(undefined)); // false
@@ -183,5 +183,30 @@ let height; // height is undefined
 if (height) {
     console.log("YAY! Height is defined");
 } else {
-    console.log("Height is UNDEFINED");
+    console.log("Height is UNDEFINED");a
+}
+*/
+const age = '18';
+if (age === 18)
+    console.log('You just became an adult :D (strict)');
+
+// Avoid using == to compare values, use === instead
+if (age == 18)
+    console.log('You just became an adult :D (loose)');
+
+const favourite = Number(prompt("What's your favorite number?"));
+
+console.log(favourite);
+console.log(typeof favourite);
+
+if (favourite === 23) {
+    console.log('Cool! 23 is an amazing number!');
+} else if (favourite === 7) {
+    console.log('7 is also a cool number!');
+} else {
+    console.log('Number is not 23 or 7');
+}
+
+if (favourite !== 23) {
+    console.log('Why not 23?');
 }
