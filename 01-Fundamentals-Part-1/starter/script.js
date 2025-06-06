@@ -264,7 +264,7 @@ if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) {
 } else {
     console.log('No team wins the trophy 😢');
 }
-*/
+
 const day = 'saturday';
 switch (day) {
     case 'monday':
@@ -288,3 +288,16 @@ switch (day) {
     default:
         console.log('Not a valid day!');
 }
+*/
+
+// Expression produce a value
+3 + 4
+1991
+true && false && !false;
+// Statement does not produce a value & it end with a semicolon
+if (23 > 10) {
+    const str = '23 is bigger';
+}
+// Template literals can be used to embed expressions not statements
+const me = 'Anh';
+console.log(`I'm ${2037 - 1991} years old ${me}`);
