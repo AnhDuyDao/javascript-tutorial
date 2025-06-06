@@ -250,7 +250,6 @@ Test data:
 § Data 1: Dolphins score 96, 108 and 89. Koalas score 88, 91 and 110
 § Data Bonus 1: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 123
 § Data Bonus 2: Dolphins score 97, 112 and 101. Koalas score 109, 95 and 106
-*/
 
 const scoreDolphins = (97 + 112 + 101) / 3;
 const scoreKoalas = (109 + 95 + 123) / 3;
@@ -264,4 +263,28 @@ if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) {
     console.log('Both teams win the trophy! 🏆');
 } else {
     console.log('No team wins the trophy 😢');
+}
+*/
+const day = 'saturday';
+switch (day) {
+    case 'monday':
+        console.log('Plan course structure');
+        console.log('Go to coding meetup');
+        break;
+    case 'tuesday':
+        console.log('Prepare theory videos');
+        break;
+    case 'wednesday':
+    case 'thursday':
+        console.log('Write code examples');
+        break;
+    case 'friday':
+        console.log('Record videos');
+        break;
+    case 'saturday':
+    case 'sunday':
+        console.log('Enjoy the weekend :D');
+        break;
+    default:
+        console.log('Not a valid day!');
 }
