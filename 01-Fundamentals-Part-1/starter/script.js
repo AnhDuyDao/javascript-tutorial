@@ -288,8 +288,6 @@ switch (day) {
     default:
         console.log('Not a valid day!');
 }
-*/
-
 // Expression produce a value
 3 + 4
 1991
@@ -301,3 +299,21 @@ if (23 > 10) {
 // Template literals can be used to embed expressions not statements
 const me = 'Anh';
 console.log(`I'm ${2037 - 1991} years old ${me}`);
+*/
+// Ternary operator produce a value, it is an expression
+const age = 23;
+age >= 18 ? console.log('I like to drink boba tea 🍵') :
+    console.log('I like to drink milk tea 🥛');
+
+const drink = age >= 18 ? 'wine 🍷' : 'water 💧';
+console.log(drink);
+
+let drink2;
+if (age >= 18) {
+    drink2 = 'wine 🍷';
+} else {
+    drink2 = 'water 💧';
+}
+console.log(drink2);
+
+console.log(`I like to drink ${age >= 18 ? 'wine 🍷' : 'water 💧'}`);
