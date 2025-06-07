@@ -44,8 +44,10 @@ function calcAge1(birthYear) {
 // You can not call function expression before they are defined int he code (Error: ... before initialization)
 // Because of hoisting (more about this in the future)
 // Prefer using this way to write a function because we should define the function on top of the code to make the structure clean and avoid bug
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+}
 const age2 = calcAge2(1991);
-
 console.log(age2);
 
 // Arrow function
@@ -53,15 +55,15 @@ const calcAge3 = birthYear => 2037 - birthYear;
 const age3 = calcAge3(1991);
 console.log(age3);
 
-const yeatUntilRetirement = (birthYear, firstName) => {
+const yearUntilRetirement = (birthYear, firstName) => {
     const age = 2037 - birthYear;
     const retirement = 65 - age;
     return `${firstName} retires in ${retirement} years`;
 }
 
-console.log(yeatUntilRetirement(1991, 'Anh'));
-console.log(yeatUntilRetirement(1980, 'Bob'));
-*/
+console.log(yearUntilRetirement(1991, 'Anh'));
+console.log(yearUntilRetirement(1980, 'Bob'));
+
 function cutFruitPieces(fruit) {
     return fruit * 4;
 }
@@ -72,5 +74,26 @@ function fruitProcessor(apples, oranges) {
     const juice = `Juice with ${applePieces} piece of apples and ${orangePieces} piece oranges.`;
     return juice;
 }
-
 console.log(fruitProcessor(2, 3));
+*/
+const calcAge = function (birthYear) {
+    return 2037 - birthYear;
+}
+
+const yearUntilRetirement = function (birthYear, firstName) {
+    const age = calcAge(birthYear);
+    const retirement = 65 - age;
+
+    if (retirement > 0) {
+        console.log(`${firstName} retires in ${retirement} years`);
+        return retirement;
+    } else {
+        console.log(`${firstName} has already retired 🎉`);
+        return -1;
+    }
+
+    return retirement;
+    //return `${firstName} retires in ${retirement} years`;
+}
+console.log(yearUntilRetirement(1991, 'Duy Anh'));
+console.log(yearUntilRetirement(1970, 'Mike'));
