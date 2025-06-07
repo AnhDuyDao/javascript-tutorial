@@ -14,8 +14,6 @@ if (hasDriversLicense) {
 
 //const interface = 'Audio'; // 'interface' is a reserved keyword in JavaScript, so it should not be used as a variable name
 //const private = 534; // 'private' is also a reserved keyword, so it should not be used as a variable name
-*/
-
 function logger() {
     console.log('My name is Duy Anh');
 }
@@ -33,4 +31,24 @@ console.log(appleJuice);
 
 const appleOrangeJuice = fruitProcessor(2, 4);
 console.log(appleOrangeJuice);
+*/
+// Function declaration 
+// You can call function declaration before they are defined in the code
+const age1 = calcAge1(1991);
+console.log(age1);
+
+function calcAge1(birthYear) {
+    return 2037 - birthYear;
+}
+
+// Function expression (Anonymous function)
+// You can not call function expression before they are defined int he code (Error: ... before initialization)
+// Because of hoisting (more about this in the future)
+// Prefer using this way to write a function because we should define the function on top of the code to make the structure clean and avoid bug
+const age2 = calcAge2(1991);
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+}
+console.log(age2);
+
 
