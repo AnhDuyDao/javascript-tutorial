@@ -31,7 +31,7 @@ console.log(appleJuice);
 
 const appleOrangeJuice = fruitProcessor(2, 4);
 console.log(appleOrangeJuice);
-*/
+
 // Function declaration 
 // You can call function declaration before they are defined in the code
 const age1 = calcAge1(1991);
@@ -40,15 +40,25 @@ console.log(age1);
 function calcAge1(birthYear) {
     return 2037 - birthYear;
 }
-
 // Function expression (Anonymous function)
 // You can not call function expression before they are defined int he code (Error: ... before initialization)
 // Because of hoisting (more about this in the future)
 // Prefer using this way to write a function because we should define the function on top of the code to make the structure clean and avoid bug
 const age2 = calcAge2(1991);
-const calcAge2 = function (birthYear) {
-    return 2037 - birthYear;
-}
-console.log(age2);
 
+console.log(age2);
+*/
+// Arrow function
+const calcAge3 = birthYear => 2037 - birthYear;
+const age3 = calcAge3(1991);
+console.log(age3);
+
+const yeatUntilRetirement = (birthYear, firstName) => {
+    const age = 2037 - birthYear;
+    const retirement = 65 - age;
+    return `${firstName} retires in ${retirement} years`;
+}
+
+console.log(yeatUntilRetirement(1991, 'Anh'));
+console.log(yeatUntilRetirement(1980, 'Bob'));
 
