@@ -162,3 +162,28 @@ const anh = {
     job: 'student',
     friends: ['Michael', 'Peter', 'Steven']
 };
+console.log(anh);
+console.log(anh.lastName);
+console.log(anh['age']);
+
+const nameKey = 'Name';
+console.log(anh['first' + nameKey]);
+console.log(anh['last' + nameKey]);
+
+// console.log(anh.'last' + nameKey) Unexpected string
+
+// const interestedIn = prompt('What do you want to know about Anh? Choose between firstName, lastName, age, job, and friends');
+// console.log(interestedIn);
+// console.log(anh[interestedIn]);
+// if (anh[interestedIn]) {
+//     console.log(anh[interestedIn]);
+// } else {
+//     console.log('Wrong request! Choose between firstName, lastName, age, job, and friends');
+// }
+// Adding a new property with dot notation
+anh.location = 'Portugal';
+// Adding a new property with bracket notation
+anh['twitter'] = '@anhduy';
+console.log(anh);
+
+console.log(`${anh.firstName} has ${anh.friends.length} friends, and his best friend is called ${anh.friends[0]}`);
