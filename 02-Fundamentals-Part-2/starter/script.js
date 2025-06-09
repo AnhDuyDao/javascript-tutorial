@@ -128,7 +128,7 @@ console.log(age1, age2, age3);
 
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages);
-*/
+
 const friends = ['Michael', 'Steven', 'Peter'];
 
 // Add a elements
@@ -152,3 +152,13 @@ console.log(friends.includes('Bob'));
 if (friends.includes('Steven')) {
     console.log('You have a friend called Steven');
 }
+
+*/
+// Object
+const anh = {
+    firstName: 'Anh',
+    lastName: 'Duy',
+    age: 2037 - 1991,
+    job: 'student',
+    friends: ['Michael', 'Peter', 'Steven']
+};
