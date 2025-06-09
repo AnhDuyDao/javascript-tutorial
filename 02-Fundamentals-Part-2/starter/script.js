@@ -187,7 +187,7 @@ anh['twitter'] = '@anhduy';
 console.log(anh);
 
 console.log(`${anh.firstName} has ${anh.friends.length} friends, and his best friend is called ${anh.friends[0]}`);
-*/
+
 const anh = {
     firstName: 'Anh',
     lastName: 'Duy',
@@ -217,3 +217,7 @@ console.log(anh.calcAge());
 console.log(anh.age);
 // console.log(anh['calcAge'](1991));
 console.log(anh.getSummary());
+*/
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+}
