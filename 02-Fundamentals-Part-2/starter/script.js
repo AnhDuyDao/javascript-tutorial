@@ -97,7 +97,7 @@ const yearUntilRetirement = function (birthYear, firstName) {
 }
 console.log(yearUntilRetirement(1991, 'Duy Anh'));
 console.log(yearUntilRetirement(1970, 'Mike'));
-*/
+
 const friends = ['Micheal', 'Steven', 'Peter'];
 console.log(friends);
 //const years = new Array(1991, 1984, 2008, 2020);
@@ -128,3 +128,27 @@ console.log(age1, age2, age3);
 
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages);
+*/
+const friends = ['Michael', 'Steven', 'Peter'];
+
+// Add a elements
+const newLength = friends.push('Jay');
+console.log(friends);
+console.log(newLength);
+
+friends.unshift('John');
+console.log(friends);
+
+// Remove elements
+friends.pop(); // Last
+console.log(friends);
+const popped = friends.pop();
+console.log(popped);
+console.log(friends);
+
+console.log(friends.indexOf('Steven'));
+console.log(friends.includes('Bob'));
+
+if (friends.includes('Steven')) {
+    console.log('You have a friend called Steven');
+}
