@@ -153,7 +153,7 @@ if (friends.includes('Steven')) {
     console.log('You have a friend called Steven');
 }
 
-*/
+
 // Object
 const anh = {
     firstName: 'Anh',
@@ -187,3 +187,33 @@ anh['twitter'] = '@anhduy';
 console.log(anh);
 
 console.log(`${anh.firstName} has ${anh.friends.length} friends, and his best friend is called ${anh.friends[0]}`);
+*/
+const anh = {
+    firstName: 'Anh',
+    lastName: 'Duy',
+    birthYeah: 1991,
+    job: 'student',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+    // calcAge: function (birthYeah) {
+    //     return 2037 - birthYeah;
+    // }
+
+    // calcAge: function () {
+    //     // console.log(this);
+    //     return 2037 - this.birthYeah;
+    // }
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYeah;
+        return this.age;
+    },
+
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${anh.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+    }
+};
+console.log(anh.calcAge());
+console.log(anh.age);
+// console.log(anh['calcAge'](1991));
+console.log(anh.getSummary());
