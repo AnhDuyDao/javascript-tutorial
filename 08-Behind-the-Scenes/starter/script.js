@@ -74,7 +74,7 @@ var numProducts = 10;
 function deleteShoppingCart() {
    console.log('All products deleted!');
 }
-*/
+
 //console.log(this);
 
 const calcAge = function (birthYear) {
@@ -86,7 +86,7 @@ calcAge(1991);
 
 const calcAgeArrow = birthYear => {
    console.log(2037 - birthYear);
-   //console.log(this);
+   //console.log(this); // print out window object in browser
 };
 
 calcAgeArrow(1991);
@@ -112,3 +112,54 @@ matilda.calcAge(); // this will refer to matilda object
 
 const f = anh.calcAge;
 f();
+*/
+// Previous lecture: var creates a variable in the global scope, that leads to create a property in the window object
+// var firstName = 'Matilda'; // 'var' creates a variable in the global scope, so it becomes a property of the window object
+const anh = {
+   firstName: 'Anh',
+   year: 1991,
+   calcAge: function () {
+      // console.log(this);
+      console.log(2037 - this.year);
+
+      // Solution 1: to the 'this' keyword issue in nested functions before ES6
+      // const self = this;
+      // const isMillennial = function () {
+      //    console.log(self);
+      //    console.log(self.year >= 1981 && self.year <= 1996);
+      //    // console.log(this.year >= 1981 && this.year <= 1996);
+      // };
+
+      // Solution 2:
+      const isMillennial = () => {
+         console.log(this);
+         console.log(this.year >= 1981 && this.year <= 1996);
+      };
+
+      isMillennial();
+   },
+
+   greet: () => {
+      console.log(this);
+      console.log(`Hey ${this.firstName}`); // this will refer to window object, print out 'Hey undefined'
+      // this.firstName is undefined because there is no 'firstName' property in the window object
+   },
+};
+
+anh.greet();
+anh.calcAge();
+
+// Arguments keyword
+const addExpr = function (a, b) {
+   console.log(arguments);
+   return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+var addArrow = (a, b) => {
+   console.log(arguments); // This will throw an error because arrow functions do not have 'arguments' keyword
+   return a + b;
+};
+
+addArrow(2, 5);
