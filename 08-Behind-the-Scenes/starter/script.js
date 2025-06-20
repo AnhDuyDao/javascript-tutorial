@@ -38,7 +38,7 @@ const firstName = 'Anh';
 calcAge(1991);
 // console.log(age); // This will throw an error because age is not defined in this scope
 // printAge(); // This will throw an error because printAge is not defined in this scope
-*/
+
 
 console.log(me);
 // console.log(job);
@@ -74,3 +74,41 @@ var numProducts = 10;
 function deleteShoppingCart() {
    console.log('All products deleted!');
 }
+*/
+//console.log(this);
+
+const calcAge = function (birthYear) {
+   console.log(2037 - birthYear);
+   //console.log(this);
+};
+
+calcAge(1991);
+
+const calcAgeArrow = birthYear => {
+   console.log(2037 - birthYear);
+   //console.log(this);
+};
+
+calcAgeArrow(1991);
+
+const anh = {
+   year: 1991,
+   calcAge: function () {
+      console.log(this);
+      console.log(2037 - this.year);
+   },
+};
+
+anh.calcAge();
+
+const matilda = {
+   year: 2017,
+};
+
+// Method borrowing (copy method from one object to another)
+// Function are just values in JavaScript, so we can assign them to other variables
+matilda.calcAge = anh.calcAge;
+matilda.calcAge(); // this will refer to matilda object
+
+const f = anh.calcAge;
+f();
