@@ -209,7 +209,7 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name); // Ristorante Roma
 console.log(restaurant.name); // Classico Italiano
-*/
+
 
 // 1. Destructuring assignment with rest pattern
 // SPREAD, because on RIGHT side of =
@@ -253,3 +253,36 @@ add(...x);
 
 restaurant.orderPizza('Mushrooms', 'Onions', 'Olives', 'Spinach');
 restaurant.orderPizza('Beef');
+*/
+console.log('--- OR ---');
+// Use ANY data type, return ANY data type, short-circuiting
+console.log(3 || 'Jonas');
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(null || 0 || '' || 'Hello' || 23 || null);
+
+// Setting default values
+restaurant.numGuests = 0;
+// Solution 1: Using ternary operator
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1); // 10
+
+// Solution 2: Using logical OR operator (Short-circuiting)
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
+
+console.log('--- AND ---');
+// Return the first falsy value or the last value
+// Oposite of OR operator
+console.log(0 && 'Jonas');
+console.log(7 && 'Jonas');
+console.log('Hello' && 23 && null && 'Jonas');
+
+// Practical example
+// if (restaurant.orderPizza) {
+//    restaurant.orderPizza('Mushrooms', 'Spinach');
+// }
+
+restaurant.orderPizza && restaurant.orderPizza('Mushrooms', 'Spinach');
