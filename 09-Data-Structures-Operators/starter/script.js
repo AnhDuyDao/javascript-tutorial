@@ -65,6 +65,11 @@ const restaurant = {
          `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
       );
    },
+
+   orderPizza: function (mainIngredient, ...otherIngredients) {
+      console.log(mainIngredient);
+      console.log(otherIngredients);
+   },
 };
 /*
 const arr = [2, 3, 4];
@@ -149,7 +154,7 @@ const {
    fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c); // { open: 11, close: 23 }
-*/
+
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 console.log(badNewArr);
@@ -204,3 +209,47 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name); // Ristorante Roma
 console.log(restaurant.name); // Classico Italiano
+*/
+
+// 1. Destructuring assignment with rest pattern
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+// REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+console.log(typeof others); // object because array is an object in JavaScript
+
+const [pizza, , risotto, ...otherFood] = [
+   ...restaurant.mainMenu,
+   ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// otherFood does not include skip elements. The rest operator must be the last element in the destructuring assignment. And only one rest operator is allowed in the destructuring assignment
+// const [pizza, , risotto, ...otherFood, bread] = [
+//    ...restaurant.mainMenu,
+//    ...restaurant.starterMenu,
+// ];
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+console.log(sat);
+
+// 2. Functions with rest parameter
+const add = function (...numbers) {
+   let sum = 0;
+   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+   console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('Mushrooms', 'Onions', 'Olives', 'Spinach');
+restaurant.orderPizza('Beef');
