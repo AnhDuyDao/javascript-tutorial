@@ -253,7 +253,7 @@ add(...x);
 
 restaurant.orderPizza('Mushrooms', 'Onions', 'Olives', 'Spinach');
 restaurant.orderPizza('Beef');
-*/
+
 console.log('--- OR ---');
 // Use ANY data type, return ANY data type, short-circuiting
 console.log(3 || 'Jonas');
@@ -286,3 +286,12 @@ console.log('Hello' && 23 && null && 'Jonas');
 // }
 
 restaurant.orderPizza && restaurant.orderPizza('Mushrooms', 'Spinach');
+*/
+// 0 is falsy so it take the last value but we want to take numGuest = 0
+restaurant.numGuests = 0;
+const guest = restaurant.numGuests || 10;
+console.log(guest);
+// Solution: Nullish coalescing operator
+// Nullish: null  and undefined (NOT include 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
