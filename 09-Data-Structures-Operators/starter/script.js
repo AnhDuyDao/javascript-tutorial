@@ -22,6 +22,24 @@ const mexicanFoods = new Set([
    'garlic',
 ]);
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+// Enhanced object literals for computed properties name
+const hours = {
+   [weekdays[3]]: {
+      open: 12,
+      close: 22,
+   },
+   [weekdays[4]]: {
+      open: 11,
+      close: 23,
+   },
+   [`day-${2 + 4}`]: {
+      open: 0, // Open 24 hours
+      close: 24,
+   },
+};
+
 // Data needed for first part of the section
 const restaurant = {
    name: 'Classico Italiano',
@@ -29,23 +47,18 @@ const restaurant = {
    categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
    starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
    mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+   // openingHours: openingHours, // Before ES6 when u try to access the openingHours object, u have to write openingHours: openingHours
 
-   openingHours: {
-      thu: {
-         open: 12,
-         close: 22,
-      },
-      fri: {
-         open: 11,
-         close: 23,
-      },
-      sat: {
-         open: 0, // Open 24 hours
-         close: 24,
-      },
-   },
+   // ES6 enhanced object literals for properties
+   hours,
 
-   order: function (starterIndex, mainIndex) {
+   // Before ES6: We need to write a property and assign a function to it
+   // order: function (starterIndex, mainIndex) {
+   //    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+   // },
+
+   // ES6 enhanced object literals for method
+   order(starterIndex, mainIndex) {
       return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
    },
 
@@ -432,7 +445,6 @@ printGoals(...game.scored);
 // 7
 team1 < team2 && console.log('Team 1 is more likely to win.');
 team2 < team1 && console.log('Team 2 is more likely to win.');
-*/
 
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
@@ -446,3 +458,4 @@ for (const item of menu) {
 for (const [index, item] of menu.entries()) {
    console.log(`${index + 1}: ${item}`);
 }
+*/
