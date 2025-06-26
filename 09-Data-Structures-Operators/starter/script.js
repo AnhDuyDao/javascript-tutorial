@@ -286,7 +286,7 @@ console.log('Hello' && 23 && null && 'Jonas');
 // }
 
 restaurant.orderPizza && restaurant.orderPizza('Mushrooms', 'Spinach');
-*/
+
 // 0 is falsy so it take the last value but we want to take numGuest = 0
 restaurant.numGuests = 0;
 const guest = restaurant.numGuests || 10;
@@ -295,3 +295,35 @@ console.log(guest);
 // Nullish: null  and undefined (NOT include 0 or '')
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
+*/
+const rest1 = {
+   name: 'Carpi',
+   numGuests: 0,
+};
+
+const rest2 = {
+   name: 'La Piazza',
+   owner: 'Giovanni Rossi',
+};
+
+// Or assignment operator
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// Logical assignment operator
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// Nullish assignment operator
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+
+// And assignment operator
+rest1.ower &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
