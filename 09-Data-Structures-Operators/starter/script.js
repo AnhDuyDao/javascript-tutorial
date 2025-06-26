@@ -25,16 +25,16 @@ const mexicanFoods = new Set([
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 // Enhanced object literals for computed properties name
-const hours = {
+const openingHours = {
    [weekdays[3]]: {
       open: 12,
       close: 22,
    },
-   [weekdays[4]]: {
+   fri: {
       open: 11,
       close: 23,
    },
-   [`day-${2 + 4}`]: {
+   sat: {
       open: 0, // Open 24 hours
       close: 24,
    },
@@ -50,7 +50,7 @@ const restaurant = {
    // openingHours: openingHours, // Before ES6 when u try to access the openingHours object, u have to write openingHours: openingHours
 
    // ES6 enhanced object literals for properties
-   hours,
+   openingHours,
 
    // Before ES6: We need to write a property and assign a function to it
    // order: function (starterIndex, mainIndex) {
@@ -459,3 +459,57 @@ for (const [index, item] of menu.entries()) {
    console.log(`${index + 1}: ${item}`);
 }
 */
+// Optional chaining property of object
+// Check if a property exists
+// if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
+
+// Error: Cannot read property 'open' of undefined
+// console.log(restaurant.openingHours.mon.open);
+// With optional chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+// Example
+// const anh = {
+//    firstName: 'Anh',
+//    lastName: 'Duy',
+//    age: 2037 - 1991,
+//    job: 'student',
+//    friends: ['Michael', 'Peter', 'Steven'],
+// };
+
+// const interestedIn = prompt(
+//    'What do you want to know about Anh? Choose between firstName, lastName, age, job, and friends'
+// );
+// console.log(interestedIn);
+// console.log(anh[interestedIn]);
+// if (anh[interestedIn]) {
+//    console.log(anh[interestedIn]);
+// } else {
+//    console.log(
+//       'Wrong request! Choose between firstName, lastName, age, job, and friends'
+//    );
+// }
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+   console.log(day);
+   // Using variable name as key to access property
+   // Espceially we use openingHours.mon(tue,wed) but now we write openingHours[day] to dynamic access
+   const open = restaurant.openingHours[day]?.open ?? 'closed';
+   console.log(`On ${day}, we open at ${open}`);
+}
+
+// Optional chaining Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisitto?.(0, 1) ?? 'Method does not exist');
+
+// Optional chaining Arrays
+const users = [
+   { name: 'Anh', email: 'hello@anh.io' },
+   { name: 'Duy', email: 'hello@duy.io' },
+];
+console.log(users[0]?.name ?? 'User array empty');
+const [user1, user2, user3] = users;
+console.log(user1?.name ?? 'User does not exist');
+console.log(user3?.name ?? 'User does not exist');
