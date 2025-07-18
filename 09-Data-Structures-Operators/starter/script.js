@@ -458,7 +458,7 @@ for (const item of menu) {
 for (const [index, item] of menu.entries()) {
    console.log(`${index + 1}: ${item}`);
 }
-*/
+
 // Optional chaining property of object
 // Check if a property exists
 // if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open);
@@ -495,7 +495,9 @@ const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 for (const day of days) {
    console.log(day);
    // Using variable name as key to access property
-   // Espceially we use openingHours.mon(tue,wed) but now we write openingHours[day] to dynamic access
+   // Espceially we use openingHours.mon(tue,wed) but now we write
+   // using bracket to create a property in openingHours with variable name 
+   openingHours[day] to dynamic access
    const open = restaurant.openingHours[day]?.open ?? 'closed';
    console.log(`On ${day}, we open at ${open}`);
 }
@@ -513,3 +515,154 @@ console.log(users[0]?.name ?? 'User array empty');
 const [user1, user2, user3] = users;
 console.log(user1?.name ?? 'User does not exist');
 console.log(user3?.name ?? 'User does not exist');
+
+// Looping object: opbject keys, values, entries
+// Property names
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+
+for (const day of properties) {
+   openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property values
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+// [key, value]: destructuring an arr
+// value is an object [key, {open, close}]: destructuring an object
+for (const [key, { open, close }] of entries) {
+   console.log(`On ${key}, we open at ${open} and close at ${close}`);
+}
+*/
+/*
+1. Loop over the game.scored array and print each player name to the console,
+along with the goal number (Example: "Goal 1: Lewandowski")
+2. Use a loop to calculate the average odd and log it to the console (We already
+studied how to calculate averages, you can go check if you don't remember)
+3. Print the 3 odds to the console, but in a nice formatted way, exactly like this:
+Odd of victory Bayern Munich: 1.33
+Odd of draw: 3.25
+Odd of victory Borrussia Dortmund: 6.5
+Get the team names directly from the game object, don't hardcode them
+(except for "draw"). Hint: Note how the odds and the game objects have the
+same property names �
+4. Bonus: Create an object called 'scorers' which contains the names of the
+players who scored as properties, and the number of goals as the value. In this
+game, it will look like this:
+{
+ Gnarby: 1,
+ Hummels: 1,
+ Lewandowski: 2
+}
+
+const game = {
+   team1: 'Bayern Munich',
+   team2: 'Borrussia Dortmund',
+   players: [
+      [
+         'Neuer',
+         'Pavard',
+         'Martinez',
+         'Alaba',
+         'Davies',
+         'Kimmich',
+         'Goretzka',
+         'Coman',
+         'Muller',
+         'Gnarby',
+         'Lewandowski',
+      ],
+      [
+         'Burki',
+         'Schulz',
+         'Hummels',
+         'Akanji',
+         'Hakimi',
+         'Weigl',
+         'Witsel',
+         'Hazard',
+         'Brandt',
+         'Sancho',
+         'Gotze',
+      ],
+   ],
+   score: '4:0',
+   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+   date: 'Nov 9th, 2037',
+   odds: {
+      team1: 1.33,
+      x: 3.25,
+      team2: 6.5,
+   },
+};
+// 1.
+for (const [i, player] of game.scored.entries()) {
+   console.log(`Goal ${i + 1}: ${player}`);
+}
+
+// 2.
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) {
+   average += odd;
+}
+average /= odds.length;
+console.log(average);
+
+// 3.
+for (const [team, odd] of Object.entries(game.odds)) {
+   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+   console.log(`Odd of ${teamStr}: ${odd}`);
+}
+
+// 4
+const scorers = {};
+for (const player of game.scored) {
+   console.log(player);
+   scorers[player] = scorers[player] ? scorers[player] + 1 : 1;
+}
+console.log(scorers);
+
+// Sets: A collection of unique values
+// Pass in a iterable (array, string, set, map) and it will return a new array with the elements of the iterable
+const orderSet = new Set([
+   'Pasta',
+   'Pizza',
+   'Pizza',
+   'Risotto',
+   'Pasta',
+   'Pizza',
+]);
+console.log(orderSet);
+console.log(new Set('Jonas'));
+console.log(orderSet.size); // 3
+console.log(orderSet.has('Pizza')); // true
+console.log(orderSet.has('Bread')); // false
+orderSet.add('Garlic Bread');
+orderSet.add('Garlic Bread');
+orderSet.delete('Risotto');
+// orderSet.clear();
+console.log(orderSet);
+
+for (const order of orderSet) {
+   console.log(order);
+}
+
+// Example: Remove duplicates from an array
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+// For only to know how many unique values
+console.log(
+   new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+console.log(new Set('DuyAnh').size); // 6
+*/
